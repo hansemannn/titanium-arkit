@@ -1,39 +1,12 @@
-// This is a test harness for your module
-// You should do something interesting in this harness
-// to test out the module and to provide instructions
-// to users on how to use it by example.
+var ARKit = require('ti.arkit');
 
-
-// open a single window
-var win = Ti.UI.createWindow({
-	backgroundColor:'white'
+var sceneView = ARKit.createSceneView({
+	scene: 'Titanium.scnassets/ti-logo.scn' // Create your Scene Assets in Xcode and place them in app/platform/ios (Alloy) or platform/ios (Classic)
 });
-var label = Ti.UI.createLabel();
-win.add(label);
+
+win.addEventListener('open', function() {
+	sceneView.run();
+});
+
+win.add(sceneView);
 win.open();
-
-// TODO: write your module tests here
-var titanium_arkit = require('ti.arkit');
-Ti.API.info("module is => " + titanium_arkit);
-
-label.text = titanium_arkit.example();
-
-Ti.API.info("module exampleProp is => " + titanium_arkit.exampleProp);
-titanium_arkit.exampleProp = "This is a test value";
-
-if (Ti.Platform.name == "android") {
-	var proxy = titanium_arkit.createExample({
-		message: "Creating an example Proxy",
-		backgroundColor: "red",
-		width: 100,
-		height: 100,
-		top: 100,
-		left: 150
-	});
-
-	proxy.printMessage("Hello world!");
-	proxy.message = "Hi world!.  It's me again.";
-	proxy.printMessage("Hello world!");
-	win.add(proxy);
-}
-
