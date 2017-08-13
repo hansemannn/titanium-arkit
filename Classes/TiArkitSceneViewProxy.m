@@ -1,8 +1,8 @@
 /**
- * Appcelerator Titanium Mobile
- * Copyright (c) 2009-2017 by Appcelerator, Inc. All Rights Reserved.
- * Licensed under the terms of the Apache Public License
- * Please see the LICENSE included with this distribution for details.
+ * Ti.ARKit
+ *
+ * Created by Hans Knöchel
+ * Copyright (c) 2017 Hans Knöchel. All rights reserved.
  */
 
 #import "TiArkitSceneView.h"
@@ -26,11 +26,26 @@
   
   ARWorldTrackingConfiguration *config = [[ARWorldTrackingConfiguration alloc] init];
   NSNumber *planeDetection = [args objectForKey:@"planeDetection"];
+  NSNumber *worldAlignment = [args objectForKey:@"worldAlignment"];
+  NSNumber *lightEstimationEnabled = [args objectForKey:@"lightEstimationEnabled"];
+  NSNumber *providesAudioData = [args objectForKey:@"providesAudioData"];
   
   if (planeDetection != nil) {
     [config setPlaneDetection:[TiUtils intValue:planeDetection def:ARPlaneDetectionNone]];
   }
-  
+
+  if (worldAlignment != nil) {
+    [config setWorldAlignment:[TiUtils intValue:worldAlignment def:ARWorldAlignmentGravity]];
+  }
+
+  if (lightEstimationEnabled != nil) {
+    [config setLightEstimationEnabled:[TiUtils boolValue:lightEstimationEnabled def:YES]];
+  }
+
+  if (providesAudioData != nil) {
+    [config setProvidesAudioData:[TiUtils boolValue:providesAudioData def:YES]];
+  }
+
   [[[[self sceneView] sceneView] session] runWithConfiguration:config];
 }
 
@@ -49,6 +64,16 @@
 {
   ENSURE_SINGLE_ARG(args, NSArray);
   [[[[self sceneView] sceneView] session] removeAnchor:[[ARAnchor alloc] initWithTransform:[self matrixFromArray:args]]];
+}
+
+- (void)setAutomaticallyUpdatesLighting:(NSNumber *)automaticallyUpdatesLighting
+{
+  [[[self sceneView] sceneView] setAutomaticallyUpdatesLighting:[TiUtils boolValue:automaticallyUpdatesLighting]];
+}
+
+- (void)setShowStatistics:(NSNumber *)showStatistics
+{
+  [[[self sceneView] sceneView] setShowsStatistics:[TiUtils boolValue:showStatistics def:NO]];
 }
 
 #pragma mark Utilities

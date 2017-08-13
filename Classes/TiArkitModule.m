@@ -1,5 +1,5 @@
 /**
- * titanium-arkit
+ * Ti.ARKit
  *
  * Created by Hans Knöchel
  * Copyright (c) 2017 Hans Knöchel. All rights reserved.
@@ -36,7 +36,7 @@
 
 #pragma Public APIs
 
-- (NSNumber *)isSupported:(id __unused)unused
+- (NSNumber *)isSupported:(id)unused
 {
 #ifndef __IPHONE_11_0
   return NUMBOOL(NO);
@@ -49,5 +49,9 @@
 
 MAKE_SYSTEM_PROP(PLANE_DETECTION_NONE, ARPlaneDetectionNone);
 MAKE_SYSTEM_PROP(PLANE_DETECTION_HORIZONTAL, ARPlaneDetectionHorizontal);
+
+MAKE_SYSTEM_PROP(WORLD_ALIGNMENT_CAMERA, ARWorldAlignmentCamera);
+MAKE_SYSTEM_PROP(WORLD_ALIGNMENT_GRAVITY, ARWorldAlignmentGravity);
+MAKE_SYSTEM_PROP(WORLD_ALIGNMENT_GRAVITY_AND_HEADING, ARWorldAlignmentGravityAndHeading);
 
 @end

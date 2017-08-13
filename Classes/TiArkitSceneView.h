@@ -1,10 +1,12 @@
 /**
- * Appcelerator Titanium Mobile
- * Copyright (c) 2009-2017 by Appcelerator, Inc. All Rights Reserved.
- * Licensed under the terms of the Apache Public License
- * Please see the LICENSE included with this distribution for details.
+ * Ti.ARKit
+ *
+ * Created by Hans Knöchel
+ * Copyright (c) 2017 Hans Knöchel. All rights reserved.
  */
+
 @import ARKit;
+
 #import "TiUIView.h"
 
 @interface TiArkitSceneView : TiUIView <ARSCNViewDelegate> {
@@ -16,7 +18,5 @@
 }
 
 @property (nonatomic, strong) ARSCNView *sceneView;
-
-- (void)setShowStatistics_:(NSNumber *)showStatistics;
 
 @end
