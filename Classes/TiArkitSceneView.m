@@ -13,7 +13,7 @@
 {
   if (_sceneView == nil) {
     // Create view
-    _sceneView = [[ARSCNView alloc] init];
+    _sceneView = [[ARSCNView alloc] initWithFrame:self.bounds];
     [_sceneView setDelegate:self];
     [_sceneView setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
     
