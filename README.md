@@ -19,7 +19,7 @@ possibility of customizations.
 ### `isSupported()`
 Whether the current device supports this `ARKit`.
 
-### SceneView
+### `SceneView`
 A ARKit scene-view. Create with `createSceneView(args)`.
 
 #### Methods
@@ -39,11 +39,14 @@ Runs the session with the provided configuration. Optional parameters:
 ##### `pause()`
 Pauses the session.
 
-##### `addAnchor()`
-Adds an anchor to the session.
+##### `addAnchor(args)`
+Adds an anchor to the session. Has to be a 4x4 matrix represented by a multi-dimensional array, e.g.
+```js
+sceneView.addAnchor([[1, 2, 3, 4], [5, 6, 7, 8], [9, 0, 1, 2], [3, 4, 5, 6]]);
+```
 
-##### `removeAnchor`
-Removes an anchor from the session.
+##### `removeAnchor(args)`
+Removes an anchor from the session. Has to be a 4x4 matrix like in `addAnchor`.
 
 #### Properties
 
