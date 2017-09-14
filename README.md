@@ -14,6 +14,14 @@ new issue and leave his/her thoughts regarding their ARKit use-case with Titaniu
 Until then, it does not make sense to port ARKit example to Titanium, since they will always be limited to the exact example-usage, without the
 possibility of customizations.
 
+## Requirements
+
+- [x] Titanium SDK 6.2.0 and later
+- [x] Xcode 9 and later
+- [x] iOS 11 and later
+- [x] Basic knowledge of computer-graphics and vector-/matrix-operations 😚
+- [x] Creativity!
+
 ## Documentation
 
 ### `isSupported()`
