@@ -64,10 +64,6 @@ Determines whether the view will update the scene’s lighting.
 ##### `showStatistics`
 Determines whether the receiver should display statistics info like FPS.
 
-## Roadmap
-- [x] Q3/2017: Basic ARKit support (load 2D/3D models, display them in the camera)
-- [ ] Q4/2017: More advanced API's based on the developers response
-
 ## Author
 Hans Knöchel ([@hansemannnn](https://twitter.com/hansemannnn) / [Web](http://hans-knoechel.de))
 
